@@ -1,17 +1,411 @@
-Overview
-This is a simple quiz game which supports two players (or teams).
-The idea is that teams get questions alternately and if the first one does not give correct answer, the other gets a chance. 
-If neither answers correctly, that’s a tie. Another way to play is to have teams use buzzers of some kind to determine which gets the first try at the question. 
-The way I’ve used the script is by having two asymmetric teams and the smaller one always getting the first chance.
+import json
 
 
-Usage
-First of all, you should check print preview and print the web page as it will give you list of questions and answers for each category. If your questions are not too long you should get one-page per category printout. This may be helpful when hosting the game.
+total_dict1 = {
+    
+"Question1":{
 
-Controls of the game itself should be straightforward. As you open the site, a grid shows up with category names at the top and boxes indexed from 100 to 500 for each question in the category. Clicking on a box brings up a question board with the question, an “x” link in top right corner and three links at the bottom: “Team 1”, “Tie” and “Team 2” (the text depends on values of configuration variables in quiz.js file).
+    "Question" : "Which is immutable data structure",
+    "Option1": "List",
+    "Option2": "Tuple",
+    "Option3": "Dictionary",
+    "correct answer": "Tuple"
+}
+},
 
-Pressing “x” hides the question board in case you’ve clicked it by mistake. “Team 1” and “Team 2” links will hide the question board, add grant appropriate amount of points to given team. The “Tie” button shows the answer to the question and replaces bottom links with a single “Close” link, which disables the question without adding points to either team. Disabling the questions greys corresponding box out and makes it impossible to display the question board again.
+{
 
-Lastly, team scores are displayed on the bottom. If there was any kind of mix-up and scores need to be altered it’s enough to click on the number and a prompt will show up where one can enter new score for given team.
+"Question 2":{
 
-And that’s about it, when it comes to usage – not very complicated.
+    "Question":"Which is mutable data structure",
+    "Option1": "Set",
+    "Option2": "List",
+    "Option3":"Dictionary",
+    "correct answer":"list"
+
+}
+},
+
+{
+
+"Question 3":{
+
+    "Question":"Which one is NOT a legal variable name?",
+    "Option1": "my_var",
+    "Option2": "-myvar",
+    "Option3": "my-var",
+    "correct answer " :"my-var"
+
+}
+},
+
+{
+
+"Question 4":{
+
+    "Question":"Which operator is used to multiply numbers",
+    "Option1": "*",
+    "Option2": "#",
+    "Option3": "$",
+    "correct answer " :"*"
+
+}
+},
+
+{
+
+"Question 5":{
+    "Question":"How do you insert COMMENTS in Python code?",
+    "Option1": "#this is a comment",
+    "Option2": "/*this is a comment",
+    "Option3": "//this is a comment",
+    "correct answer " :"#this is a comment"
+
+}
+},
+
+{
+
+"Question 6":{
+
+    "Question":"How do you create a variable with the numeric value 5?",
+    "Option1": "x = 5",
+    "Option2": "x = int(5)",
+    "Option3": "both the others are correct",
+    "correct answer " :"both the others are correct"
+
+}
+},
+
+
+{
+
+"Question 7":{
+
+    "Question":"What is the correct file extension for Python files?",
+    "Option1": ".pyth",
+    "Option2": ".py",
+    "Option3": ".pt",
+    "correct answer " :".py"
+}
+},
+
+{
+
+"Question 8":{
+
+    "Question":"How do you create a variable with the floating number 2.8?",
+    "Option1": "both the others are correct",
+    "Option2": "x = 2.8",
+    "Option3": "x = float(2.8)",
+    "correct answer " :"both the others are correct"
+
+}
+},
+{
+
+"Question 9":{
+
+    "Question":"What is the correct syntax to output the type of a variable or object in Python?",
+    "Option1": "print(type(x))",
+    "Option2": "print(typeof(x))",
+    "Option3": "print(typeofx)",
+    "correct answer " :"print(type(x))"
+
+}
+},
+
+{
+
+"Question 10":{
+
+    "Question":"What is the correct way to create a function in Python?",
+    "Option1": "function myfunction():",
+    "Option2": "def myfunction():",
+    "Option3": "create myfunction():",
+    "correct answer " :"def myfunction():"
+ 
+}
+},
+
+
+{
+
+"Question 11":{
+
+    "Question":"In Python, 'Hello', is the same as Hello",
+    "Option1": "true",
+    "Option2": "false",
+    "Option3": "neither true or false",
+    "correct answer " :"true"
+}
+},
+
+
+
+{
+
+"Question 12":{
+
+    "Question":"How do you start writing a while loop in Python",
+    "Option1": "while x > y{",
+    "Option2": "x>y while{",
+    "Option3": "while x > y:",
+    "correct answer":"while x > y{"
+
+}
+}, 
+
+
+{
+
+"Question 13":{
+
+    "Question":"Which method can be used to remove any whitespace from both the beginning and the end of a string?",
+    "Option1": "strip",
+    "Option2": "trip",
+    "Option3": "ptrim",
+    "correct answer":"strip"
+
+}
+},
+
+
+{
+
+"Question 14":{
+
+    "Question":"Which method can be used to return a string in upper case letters?",
+    "Option1": "upper()",
+    "Option2": "touppercase()",
+    "Option3": "uppercase()",
+    "correct answer":"upper()"
+
+}
+},
+
+
+{
+"Question 15":{
+
+    "Question":"Which method can be used to replace parts of a string?",
+    "Option1": "switch()",
+    "Option2": "replace()",
+    "Option3": "repl()",
+    "correct answer":"replace()"
+
+}
+},
+
+
+{
+
+"Question 16":{
+
+    "Question":"Which operator is used to multiply numbers",
+    "Option1": "*",
+    "Option2": "#",
+    "Option3": "x",
+    "correct answer":"*"
+
+}
+},
+
+{
+
+"Question 17":{
+
+    "Question":"Which operator can be used to compare two values",
+    "Option1": "<>",
+    "Option2": "><",
+    "Option3": "==",
+    "correct answer":"<>"
+
+}
+},
+
+{
+
+"Question 18":{
+
+    "Question":"Which collection is ordered, changeable, and allows duplicate members",
+    "Option1": "dictionairy",
+    "Option2": "set",
+    "Option3": "Tuple",
+    "correct answer":"Tuple"
+
+}
+},
+
+{
+
+"Question 19":{
+
+    "Question":"Which collection does not allow duplicate members",
+    "Option1": "set",
+    "Option2": "list",
+    "Option3": "tuple",
+    "correct answer":"set",
+
+}
+},
+
+{
+
+"Question 20":{
+
+    "Question":"How do you start writing an if statement in Python",
+    "Option1": "if x > y then:",
+    "Option2": "if(x>y)",
+    "Option3": "if x > y:",
+    "correct answer":"if(x>y)"
+}
+},
+
+{
+
+"Question 21":{
+
+    "Question":"How do you start writing a for loop in Python",
+    "Option1": "for each x in y:",
+    "Option2": "for x in y:",
+    "Option3": "for x > y:",
+    "correct answer":"for x in y:"
+}
+},
+
+{
+
+"Question 22":{
+
+    "Question":"Which statement is used to stop a loop",
+    "Option1": "return",
+    "Option2": "break",
+    "Option3": "stop",
+    "correct answer":"break"
+
+}
+},
+
+{
+
+"Question 23":{
+    "Question":"What is output for −raining'. find('z') ",
+    "Option1": "type error",
+    "Option2": "_1",
+    "Option3": "not found",
+    "correct answer":"_1"
+
+}
+},
+
+{
+
+"Question 24":{
+
+    "Question":"What is output for − max(''please help '')",
+    "Option1": "s",
+    "Option2": "ablankspace",
+    "Option3": "p",
+    "correct answer":"s"
+}
+},
+{
+
+"Question 25":{
+
+    "Question":"Which of the function among will return 4 on the set s = {3, 4, 1, 2}",
+    "Option1": "sum(s)",
+    "Option2": "len(s)",
+    "Option3": "max(s)",
+    "correct answer":"len(s) and max(s)"
+}
+},
+
+{
+
+"Question 26":{
+
+    "Question":"Which of these in not a core data type",
+    "Option1": "set",
+    "Option2": "tuple",
+    "Option3": "dictionairy",
+    "correct answer":"set"
+}
+},
+
+{
+
+"Question 27":{
+
+    "Question":"How do you start writing an if statement in Python",
+    "Option1": "if x > y then:",
+    "Option2": "if(x>y)",
+    "Option3": "if x > y:",
+    "correct answer":"3"
+}
+},
+
+{
+
+"Question 28":{
+
+    "Question":"How do you start writing an if statement in Python",
+    "Option1": "if x > y then:",
+    "Option2": "if(x>y)",
+    "Option3": "if x > y:",
+    "correct option":"_1"
+}
+},
+{
+
+"Question 29":{
+
+    "Question":"How do you start writing an if statement in Python",
+    "Option1": "if x > y then:",
+    "Option2": "if(x>y)",
+    "Option3": "if x > y:",
+    "correct option":"_1"
+}
+},
+{
+    
+"Question 30":{
+
+    "Question":"How do you start writing an if statement in Python",
+    "Option1": "if x > y then:",
+    "Option2": "if(x>y)",
+    "Option3": "if x > y:",
+    "correct option":"_1"
+}
+},
+
+Name = input("enter the name : ")
+
+print("Hello",Name,"welcome to quiz world")
+score = 0
+val = 0
+
+for i in json_object:
+       val = val + 1
+       print("question number :  ",val,json_object["Question"])
+       print("Options1 : ",json_object[i]["Option1"])
+       print("Options2 : ",json_object[i]["Option2"])
+       print("Options3 : ",json_object[i]["Option3"])
+
+       answer = input("please enter anyone option: Options1/Options2/Options3: ")
+       if answer == json_object[i]["Correct answer"]:
+            score = score + 1
+            print("congralations you got one point")
+       else:
+           print("you lost the point")
+
+print("final score is : ",score)
+
+
+# Data to be written
+json_object = json.dumps(total_dict1, indent = 4)
+  
+# Writing to sample.json
+with open("sample.json", "w") as outfile:
+    outfile.write(json_object)
