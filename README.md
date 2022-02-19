@@ -1,4 +1,4 @@
-# Quiz-competition
+# Quiz-competition using json file
 
 Overview:
 
