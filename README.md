@@ -19,9 +19,5 @@ Usage :
 
 4.Clicking on a box brings up a question board with the question, an “x” link in top right corner and three links at the bottom: “Team 1”, “Tie” and “Team 2” (the text depends on values of configuration variables in quiz.js file).
 
-5.Pressing “x” hides the question board in case you’ve clicked it by mistake. “Team 1” and “Team 2” links will hide the question board, add grant appropriate amount of points to given team. 
-
-6.The “Tie” button shows the answer to the question and replaces bottom links with a single “Close” link, which disables the question without adding points to either team. Disabling the questions greys corresponding box out and makes it impossible to display the question board again.
-
 7.Lastly, team scores are displayed on the bottom. If there was any kind of mix-up and scores need to be altered it’s enough to click on the number and a prompt will show up where one can enter new score for given team.
 
